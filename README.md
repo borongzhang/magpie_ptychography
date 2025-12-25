@@ -5,12 +5,14 @@ This repository contains the implementation of the main algorithms described in 
 
 The algorithm is built in Python and leverages NumPy, SciPy, and Jupyter for development and visualization. 
 
-## Installation 
+## Installation
 
-```
-conda create -n magpie-env python=3.11 
+```bash
+conda create -n magpie-env python=3.11
 conda activate magpie-env
 pip install git+https://github.com/borongzhang/magpie_ptychography.git@main
+# (Optional) Register the environment as a Jupyter kernel
+python -m ipykernel install --user --name magpie-env --display-name "Python (magpie-env)"
 ```
 
 ## License 
