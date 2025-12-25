@@ -8,9 +8,9 @@ The algorithm is built in Python and leverages NumPy, SciPy, and Jupyter for dev
 ## Installation 
 
 ```
-conda create -n magpie-env python=3.11 numpy scipy matplotlib h5py imageio notebook
+conda create -n magpie-env python=3.11 
 conda activate magpie-env
-jupyter notebook
+pip install git+https://github.com/borongzhang/magpie_ptychography.git@main
 ```
 
 ## License 
