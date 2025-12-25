@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magpie-ptychography"
+version = "0.1.0"
+description = "MAGPIE ptychography codebase"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "scipy",
+  "matplotlib",
+  "h5py",
+  "imageio",
+  "notebook",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["magpie_ptychography*"]
