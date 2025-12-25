@@ -23,7 +23,7 @@ Public API exports:
 __version__ = "0.1.0"
 
 # --- Algorithms ---
-from .algorithms import (
+from magpie_ptychography.algorithms import (
     magpie_recursion,
     magpie_loop,
     rpie,
@@ -31,10 +31,10 @@ from .algorithms import (
 )
 
 # --- Misfits ---
-from .misfits import feasibility_distance_misfit
+from magpie_ptychography.misfits import feasibility_distance_misfit
 
 # --- Synthetic data ---
-from .synthetic import (
+from magpie_ptychography.synthetic import (
     generate_intensity_measurements,
     generate_scanning_positions,
 )
