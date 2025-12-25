@@ -8,6 +8,17 @@ version = "0.1.0"
 description = "MAGPIE ptychography codebase"
 readme = "README.md"
 requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Borong Zhang" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research"
+]
+keywords = ["ptychography", "phase retrieval", "multigrid", "MAGPIE"]
 dependencies = [
   "numpy",
   "scipy",
@@ -15,6 +26,17 @@ dependencies = [
   "h5py",
   "imageio",
   "notebook",
+  "ipykernel"
+]
+
+[project.urls]
+homepage = "https://github.com/borongzhang/magpie_ptychography"
+repository = "https://github.com/borongzhang/magpie_ptychography"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-xdist"
 ]
 
 [tool.setuptools.packages.find]
