@@ -80,6 +80,7 @@ def magps(z_k, Q, rew, u):
 
 def magpie_recursion(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.01, metric=False, tol=1e-4):
     z       = z_init.copy()
+    z_recon = None
     args    = args_init(data)
     res     = []
     err     = []
@@ -114,6 +115,8 @@ def magpie_recursion(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.0
                 tol_hit_iter = j + 1
                 z_recon = z.copy()
 
+    if z_recon is None:
+        z_recon = z.copy()
     return z_recon, np.array(res), np.array(err), tol_hit_iter
 
 def magpie_loop(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.01, metric=False, tol=1e-4, max_level=7):
@@ -148,6 +151,7 @@ def magpie_loop(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.01, me
 
     # 5) Initialize variables
     z    = z_init.copy()
+    z_recon = None
     args = args_init(data)
     arr  = list(range(len(pos_array)))
 
@@ -203,11 +207,14 @@ def magpie_loop(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.01, me
                 tol_hit_iter = j + 1
                 z_recon = z.copy()
 
+    if z_recon is None:
+        z_recon = z.copy()
     return z_recon, np.array(res), np.array(err), tol_hit_iter
 
 
 def rpie(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.01, metric=False, tol=1e-4):
     z = z_init.copy()
+    z_recon = None
     Q_abs   = np.abs(Q)
     Q_maxsq = np.max(Q_abs)**2
     Q_sq    = Q_abs**2
@@ -242,6 +249,8 @@ def rpie(z_init, Q, data, pos_array, num_iter, misfit, gt, alpha=0.01, metric=Fa
                 tol_hit_iter = j + 1
                 z_recon = z.copy()
 
+    if z_recon is None:
+        z_recon = z.copy()
     return z_recon, np.array(res), np.array(err), tol_hit_iter
 
 
@@ -266,6 +275,7 @@ def lbfgs(x0, Q, data, pos_array, maxiter, misfit, gt, m=5, tol=1e-4):
 
     object_shape = x0.shape
     x = x0.flatten().view(float)
+    x_recon = None
     f, g, g2 = sfun(x)
     eval_counters = {'func': 1, 'grad': 1}
     eval_history = {'func': [1], 'grad': [1], 'f': [f], 'g2': [g2],
@@ -332,4 +342,6 @@ def lbfgs(x0, Q, data, pos_array, maxiter, misfit, gt, m=5, tol=1e-4):
         eval_history['g2'].append(g2)
         eval_history['error'].append(np.linalg.norm(np.abs(x.view(np.complex128).reshape(object_shape))-np.abs(gt)))
 
+    if x_recon is None:
+        x_recon = x.copy()
     return x_recon, eval_history, tol_hit_iter
