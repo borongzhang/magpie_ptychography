@@ -19,5 +19,5 @@ python -m ipykernel install --user --name magpie-env --display-name "Python (mag
 This repository includes **all numerical examples and experiments presented in the paper**, 
 with scripts and Jupyter notebooks that reproduce the figures and results reported in the manuscript.
 
-## License 
-This project is distributed for academic and non-commercial use. For other use cases, or for questions and collaborations, please contact the authors. 
+## License
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
