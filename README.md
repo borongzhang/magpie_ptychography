@@ -51,12 +51,6 @@ All numerical examples in the manuscript are included in this repository. To rep
 
 > If you use MAGPIE in research, please cite the paper linked above.
 
-## Troubleshooting
-
-- **Kernel not visible in Jupyter**: run the `ipykernel install` command again, then restart Jupyter.
-- **Dependency issues**: ensure Python 3.11 is active in `magpie-env` before installation.
-- **Slow first run**: initial setup and data generation may take longer due to environment warm-up.
-
 ## License
 
 This project is released under the MIT License. See [LICENSE](LICENSE) for details.
